@@ -51,7 +51,18 @@ The project is containerized into a beautiful, recruiter-ready Streamlit interfa
 - Confusion Matrix Heatmaps.
 - **Model-Driven WordClouds**: Generated strictly from the `model.coef_` of the Logistic Regression model to visualize exactly what words drive "Positive" vs "Negative" predictions.
 
-#### 📸 Application Screenshots & Visualizations
+#### 📸 Application UI Screenshots
+
+1. **Dashboard Overview (Real-Time Metrics)**  
+   ![Dashboard Top](screenshots/ui_top.png)
+
+2. **Sentiment Prediction Engine**  
+   ![Prediction Interface](screenshots/ui_prediction.png)
+
+3. **In-App Evaluation Metrics**  
+   ![Evaluation Tab](screenshots/ui_metrics.png)
+
+#### 📊 Model Analysis Visualizations
 
 1. **Dashboard Overview & Model Comparison**
    ![Model Comparison](plots/model_comparison.png)
