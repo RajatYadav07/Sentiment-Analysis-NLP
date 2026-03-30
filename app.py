@@ -12,8 +12,11 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
-for pkg in ['stopwords', 'wordnet', 'punkt', 'punkt_tab', 'omw-1.4']:
-    nltk.download(pkg, quiet=True)
+@st.cache_resource(show_spinner=False)
+def download_nltk_data():
+    for pkg in ['stopwords', 'wordnet', 'punkt', 'punkt_tab', 'omw-1.4']:
+        nltk.download(pkg, quiet=True)
+download_nltk_data()
 
 BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
 MODELS_DIR = os.path.join(BASE_DIR, "models")
@@ -453,17 +456,18 @@ if analyse:
     elif model is None:
         st.error("Model not found — run `python train.py` first.")
     else:
-        clean  = preprocess(user_text)
-        vec    = tfidf.transform([clean])
-        pred   = model.predict(vec)[0]
-        proba  = model.predict_proba(vec)[0]
-        is_pos = pred == 1
+        with st.spinner("Analyzing text..."):
+            clean  = preprocess(user_text)
+            vec    = tfidf.transform([clean])
+            pred   = model.predict(vec)[0]
+            proba  = model.predict_proba(vec)[0]
+            is_pos = pred == 1
 
-        label      = "Positive" if is_pos else "Negative"
-        css_label  = "positive" if is_pos else "negative"
-        conf_pos   = proba[1] * 100
-        conf_neg   = proba[0] * 100
-        bar_pct    = conf_pos if is_pos else conf_neg
+            label      = "Positive" if is_pos else "Negative"
+            css_label  = "positive" if is_pos else "negative"
+            conf_pos   = proba[1] * 100
+            conf_neg   = proba[0] * 100
+            bar_pct    = conf_pos if is_pos else conf_neg
 
         st.markdown(f"""
 <div class="result-wrap">
