@@ -162,6 +162,10 @@ label[data-testid="stWidgetLabel"] p {
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
     cursor: pointer !important;
     text-transform: uppercase !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 .stButton:first-of-type > button {
     background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
