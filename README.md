@@ -91,5 +91,5 @@ The project is containerized into a beautiful, recruiter-ready Streamlit interfa
 
 ---
 
-**Author**: (Your Name Here)  
+**Author**: RAJAT YADAV 
 **Tech Stack**: Python, Pandas, Scikit-Learn, NLTK, Matplotlib, Streamlit.
