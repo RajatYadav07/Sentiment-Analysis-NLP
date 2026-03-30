@@ -54,13 +54,13 @@ The project is containerized into a beautiful, recruiter-ready Streamlit interfa
 #### 📸 Application UI Screenshots
 
 1. **Dashboard Overview (Real-Time Metrics)**  
-   ![Dashboard Top](screenshots/ui_top.png)
+   ![Dashboard Top](screenshots/ui_top.png?v=2)
 
 2. **Sentiment Prediction Engine**  
-   ![Prediction Interface](screenshots/ui_prediction.png)
+   ![Prediction Interface](screenshots/ui_prediction.png?v=2)
 
 3. **In-App Evaluation Metrics**  
-   ![Evaluation Tab](screenshots/ui_metrics.png)
+   ![Evaluation Tab](screenshots/ui_metrics.png?v=2)
 
 #### 📊 Model Analysis Visualizations
 
