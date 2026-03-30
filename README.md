@@ -51,14 +51,16 @@ The project is containerized into a beautiful, recruiter-ready Streamlit interfa
 - Confusion Matrix Heatmaps.
 - **Model-Driven WordClouds**: Generated strictly from the `model.coef_` of the Logistic Regression model to visualize exactly what words drive "Positive" vs "Negative" predictions.
 
-#### 📸 Application Screenshots
+#### 📸 Application Screenshots & Visualizations
 
-*(Insert your screenshots here before pushing to GitHub)*
+1. **Dashboard Overview & Model Comparison**
+   ![Model Comparison](plots/model_comparison.png)
 
-1. **Dashboard Overview & Prediction UI**
-   `![Dashboard](screenshots/dashboard.png)`
-2. **Visualizations (WordClouds & Demographics)**
-   `![Visualizations](screenshots/visualizations.png)`
+2. **Visualizations (Positive WordCloud Insight)**
+   ![WordCloud Positive](plots/wordcloud_positive.png)
+
+3. **Confusion Matrix (Logistic Regression)**
+   ![Confusion Matrix LR](plots/cm_logistic_regression.png)
 
 ---
 
