@@ -163,14 +163,9 @@ label[data-testid="stWidgetLabel"] p {
     cursor: pointer !important;
     text-transform: uppercase !important;
     white-space: nowrap !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
 }
-.stButton > button * {
-    text-align: center !important;
-    margin: 0 auto !important;
+.stButton > button:hover {
+    transform: translateY(-2px) scale(1.02) !important;
 }
 .stButton:first-of-type > button {
     background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
@@ -417,31 +412,28 @@ st.info("**Model Explanation:** This model uses TF-IDF to convert text into nume
 
 
 # ── Quick samples ─────────────────────────────────────────────────────────────
+def set_sample(text):
+    st.session_state['input_text'] = text
+
+def clear_text():
+    st.session_state['input_text'] = ""
+
 st.markdown('<div class="section-title">Quick samples</div>', unsafe_allow_html=True)
 col_p1, col_p2, col_n1, col_n2 = st.columns(4)
 with col_p1:
-    if st.button("↗ Positive 1"):
-        st.session_state['input_text'] = SAMPLES['pos1']
-        st.rerun()
+    st.button("↗ Positive 1", on_click=set_sample, args=(SAMPLES['pos1'],))
 with col_p2:
-    if st.button("↗ Positive 2"):
-        st.session_state['input_text'] = SAMPLES['pos2']
-        st.rerun()
+    st.button("↗ Positive 2", on_click=set_sample, args=(SAMPLES['pos2'],))
 with col_n1:
-    if st.button("↘ Negative 1"):
-        st.session_state['input_text'] = SAMPLES['neg1']
-        st.rerun()
+    st.button("↘ Negative 1", on_click=set_sample, args=(SAMPLES['neg1'],))
 with col_n2:
-    if st.button("↘ Negative 2"):
-        st.session_state['input_text'] = SAMPLES['neg2']
-        st.rerun()
+    st.button("↘ Negative 2", on_click=set_sample, args=(SAMPLES['neg2'],))
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
 # ── Input ─────────────────────────────────────────────────────────────────────
 user_text = st.text_area(
     "Review text",
-    value=st.session_state.get('input_text', ''),
     height=150,
     placeholder="Example: A quietly devastating film that stays with you long after the credits roll.",
     key="input_text",
@@ -452,9 +444,7 @@ btn_col, clear_col, _ = st.columns([1.2, 0.7, 4])
 with btn_col:
     analyse = st.button("Analyse →")
 with clear_col:
-    if st.button("Clear"):
-        st.session_state['input_text'] = ''
-        st.rerun()
+    st.button("Clear", on_click=clear_text)
 
 # ── Prediction output ─────────────────────────────────────────────────────────
 if analyse:
