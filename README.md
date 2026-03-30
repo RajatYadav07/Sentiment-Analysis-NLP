@@ -79,7 +79,7 @@ The project is containerized into a beautiful, recruiter-ready Streamlit interfa
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/sentiment-analysis-nlp.git
+   git clone https://github.com/RajatYadav07/Sentiment-Analysis-NLP.git
    cd sentiment-analysis-nlp
    ```
 
