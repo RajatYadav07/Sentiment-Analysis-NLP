@@ -40,13 +40,13 @@ html, body, [class*="css"] {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ── Page background ─────────────────────────────── */
+/* ── Page background & Glassmorphism ─────────────────────────────── */
 [data-testid="stAppViewContainer"] {
-    background-color: #0d0d0d;
+    background: radial-gradient(circle at 50% 0%, #1a1a24 0%, #0a0a0f 100%);
     color: #e8e8e8;
 }
 [data-testid="stHeader"] { background: transparent; }
-[data-testid="stSidebar"] { background: #111; }
+[data-testid="stSidebar"] { background: #0f0f15; border-right: 1px solid rgba(255,255,255,0.05); }
 
 /* ── Hide Streamlit chrome ───────────────────────── */
 #MainMenu, footer, [data-testid="stToolbar"] { display: none !important; }
@@ -62,19 +62,20 @@ html, body, [class*="css"] {
 .top-label {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.7rem;
+    gap: 8px;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #6b6b6b;
-    margin-bottom: 1.2rem;
+    color: #8b8b99;
+    margin-bottom: 1.5rem;
 }
 .top-label span {
     display: inline-block;
-    width: 6px; height: 6px;
+    width: 8px; height: 8px;
     border-radius: 50%;
     background: #06b6d4;
+    box-shadow: 0 0 10px rgba(6,182,212,0.8);
 }
 
 /* ── Stats block ─────────────────────────────────── */
@@ -82,223 +83,254 @@ html, body, [class*="css"] {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    margin-bottom: 2.5rem;
-    padding: 1.5rem;
-    background: #141414;
-    border: 1px solid #222;
-    border-radius: 12px;
+    margin-bottom: 3rem;
+    padding: 1.8rem;
+    background: rgba(20, 20, 25, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
-.stat-box { display: flex; flex-direction: column; gap: 4px; }
-.stat-val { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; color: #06b6d4; font-weight: 500;}
-.stat-lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6b6b6b; font-weight: 600;}
+.stat-box { display: flex; flex-direction: column; gap: 6px; }
+.stat-val { font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; color: #06b6d4; font-weight: 500; text-shadow: 0 0 15px rgba(6,182,212,0.3);}
+.stat-lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #7f7f8c; font-weight: 600;}
 
 /* ── Page title ──────────────────────────────────── */
 .page-title {
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     font-weight: 700;
     letter-spacing: -0.03em;
-    color: #f0f0f0;
-    line-height: 1.1;
-    margin: 0 0 0.5rem;
+    color: #ffffff;
+    line-height: 1.15;
+    margin: 0 0 0.8rem;
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .page-subtitle {
-    font-size: 0.95rem;
-    color: #888;
-    margin: 0 0 1.5rem;
+    font-size: 1.05rem;
+    color: #9494a3;
+    margin: 0 0 2rem;
     font-weight: 400;
+    line-height: 1.6;
 }
 
 /* ── Divider ─────────────────────────────────────── */
 .divider {
     height: 1px;
-    background: #1e1e1e;
-    margin: 2.4rem 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+    margin: 3rem 0;
 }
 
 /* ── Text area override ───────────────────────────── */
 textarea {
-    background: #141414 !important;
-    border: 1px solid #252525 !important;
-    border-radius: 10px !important;
-    color: #e0e0e0 !important;
+    background: rgba(15, 15, 20, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    color: #f0f0f0 !important;
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.95rem !important;
+    font-size: 1rem !important;
     line-height: 1.6 !important;
+    padding: 1.2rem !important;
     resize: vertical !important;
-    transition: border-color 0.15s ease !important;
+    transition: all 0.3s ease !important;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.2) !important;
 }
 textarea:focus {
     border-color: #06b6d4 !important;
-    box-shadow: 0 0 0 3px rgba(6,182,212,0.08) !important;
+    box-shadow: 0 0 0 4px rgba(6,182,212,0.15), inset 0 2px 10px rgba(0,0,0,0.2) !important;
     outline: none !important;
 }
 label[data-testid="stWidgetLabel"] p {
-    font-size: 0.8rem !important;
+    font-size: 0.85rem !important;
     font-weight: 600 !important;
-    color: #5a5a5a !important;
+    color: #8b8b99 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-    margin-bottom: 0.4rem !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 0.6rem !important;
 }
 
 /* ── Buttons ─────────────────────────────────────── */
 .stButton > button {
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.82rem !important;
+    font-size: 0.85rem !important;
     font-weight: 600 !important;
-    letter-spacing: 0.04em !important;
-    border-radius: 8px !important;
-    transition: all 0.15s ease !important;
+    letter-spacing: 0.05em !important;
+    border-radius: 10px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
     cursor: pointer !important;
+    text-transform: uppercase !important;
 }
 .stButton:first-of-type > button {
-    background: #06b6d4 !important;
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
     color: #fff !important;
     border: none !important;
-    padding: 0.55rem 1.4rem !important;
+    padding: 0.6rem 1.6rem !important;
+    box-shadow: 0 4px 15px rgba(6,182,212,0.2) !important;
 }
 .stButton:first-of-type > button:hover {
-    background: #0891b2 !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 4px 16px rgba(6,182,212,0.22) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 25px rgba(6,182,212,0.4) !important;
 }
 .stButton:not(:first-of-type) > button {
-    background: transparent !important;
-    color: #555 !important;
-    border: 1px solid #222 !important;
-    padding: 0.5rem 1rem !important;
+    background: rgba(255,255,255,0.03) !important;
+    color: #a0a0a0 !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    padding: 0.55rem 1.2rem !important;
 }
 .stButton:not(:first-of-type) > button:hover {
-    color: #aaa !important;
-    border-color: #333 !important;
-    background: #171717 !important;
+    color: #fff !important;
+    border-color: rgba(255,255,255,0.25) !important;
+    background: rgba(255,255,255,0.08) !important;
+    transform: translateY(-1px) !important;
 }
 
 /* ── Result block ────────────────────────────────── */
 .result-wrap {
-    margin: 2.2rem 0 0;
-    animation: slideUp 0.3s cubic-bezier(0.16,1,0.3,1);
+    margin: 2.5rem 0 0;
+    padding: 2.5rem;
+    background: rgba(20, 20, 25, 0.6);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.4s cubic-bezier(0.16,1,0.3,1);
 }
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 .result-sentiment {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    margin-bottom: 0.35rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
 }
 .result-verdict {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
     line-height: 1;
 }
-.verdict-positive { color: #4ade80; }
-.verdict-negative { color: #f87171; }
+.verdict-positive { color: #4ade80; text-shadow: 0 0 20px rgba(74,222,128,0.3); }
+.verdict-negative { color: #f87171; text-shadow: 0 0 20px rgba(248,113,113,0.3); }
 .label-positive   { color: #4ade80; }
 .label-negative   { color: #f87171; }
 
 .confidence-row {
     display: flex;
-    gap: 2rem;
+    gap: 3.5rem;
     align-items: flex-start;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 .conf-item {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
 }
 .conf-pct {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 500;
     letter-spacing: -0.02em;
 }
 .conf-label {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #4a4a4a;
+    letter-spacing: 0.12em;
+    color: #8b8b99;
     font-weight: 600;
 }
 .conf-positive { color: #4ade80; }
 .conf-negative { color: #f87171; }
 
 .bar-wrap {
-    margin-top: 1.2rem;
-    height: 4px;
-    background: #1a1a1a;
-    border-radius: 2px;
+    margin-top: 1.8rem;
+    height: 6px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
     overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 }
 .bar-fill {
     height: 100%;
-    border-radius: 2px;
-    transition: width 0.6s cubic-bezier(0.16,1,0.3,1);
+    border-radius: 3px;
+    transition: width 0.8s cubic-bezier(0.16,1,0.3,1);
 }
-.bar-pos { background: #4ade80; }
-.bar-neg { background: #f87171; }
+.bar-pos { background: linear-gradient(90deg, #22c55e, #4ade80); box-shadow: 0 0 10px rgba(74,222,128,0.5); }
+.bar-neg { background: linear-gradient(90deg, #ef4444, #f87171); box-shadow: 0 0 10px rgba(248,113,113,0.5); }
 
 /* ── Section title ───────────────────────────────── */
 .section-title {
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #6b6b6b;
-    margin-bottom: 1.2rem;
+    letter-spacing: 0.15em;
+    color: #8b8b99;
+    margin-bottom: 1.5rem;
 }
 .section-subtitle {
-    font-size: 0.85rem;
-    color: #888;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    color: #9494a3;
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
 /* ── Tabs ────────────────────────────────────────── */
 [data-testid="stTabs"] [data-baseweb="tab-list"] {
     background: transparent !important;
-    gap: 0 !important;
-    border-bottom: 1px solid #1a1a1a !important;
+    gap: 1rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
     padding-bottom: 0 !important;
 }
 [data-testid="stTabs"] [data-baseweb="tab"] {
     background: transparent !important;
     border: none !important;
-    color: #444 !important;
-    font-size: 0.78rem !important;
+    color: #6a6a75 !important;
+    font-size: 0.8rem !important;
     font-weight: 600 !important;
-    letter-spacing: 0.06em !important;
+    letter-spacing: 0.08em !important;
     text-transform: uppercase !important;
-    padding: 0.55rem 1rem !important;
+    padding: 0.8rem 1.2rem !important;
     border-radius: 0 !important;
+    transition: all 0.2s ease !important;
+}
+[data-testid="stTabs"] [data-baseweb="tab"]:hover {
+    color: #e0e0e0 !important;
 }
 [data-testid="stTabs"] [aria-selected="true"] {
-    color: #e0e0e0 !important;
+    color: #ffffff !important;
     border-bottom: 2px solid #06b6d4 !important;
+    text-shadow: 0 0 10px rgba(6,182,212,0.4) !important;
 }
 [data-testid="stTabs"] [data-baseweb="tab-panel"] {
-    padding: 1.6rem 0 0 !important;
+    padding: 2rem 0 0 !important;
     background: transparent !important;
 }
 
 /* ── Images ─────────────────────────────────────── */
 [data-testid="stImage"] img {
-    border-radius: 10px;
-    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+[data-testid="stImage"] img:hover {
+    transform: scale(1.01);
 }
 
 /* ── Info/warning box override ───────────────────── */
 [data-testid="stAlertContainer"] {
-    background: #141414 !important;
-    border: 1px solid #222 !important;
-    border-radius: 8px !important;
-    color: #888 !important;
+    background: rgba(20,20,25,0.6) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    color: #a0a0a0 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -478,11 +510,11 @@ for tab, fname in zip(tabs, plot_map.values()):
             st.info("Run `python train.py` to generate this plot.")
 
 st.markdown("""
-<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; text-align: center; background: #141414; padding: 1.2rem; border-radius: 10px; border: 1px solid #222;">
-    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">Accuracy</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4;">93.8%</div></div>
-    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">Precision</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4;">89.4%</div></div>
-    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">Recall</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4;">91.7%</div></div>
-    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">F1 Score</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4;">90.6%</div></div>
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; text-align: center; background: rgba(20, 20, 25, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 1.8rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+    <div><div style="font-size: 0.75rem; color: #7f7f8c; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 6px;">Accuracy</div><div style="font-size: 1.6rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4; text-shadow: 0 0 15px rgba(6,182,212,0.3);">93.8%</div></div>
+    <div><div style="font-size: 0.75rem; color: #7f7f8c; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 6px;">Precision</div><div style="font-size: 1.6rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4; text-shadow: 0 0 15px rgba(6,182,212,0.3);">89.4%</div></div>
+    <div><div style="font-size: 0.75rem; color: #7f7f8c; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 6px;">Recall</div><div style="font-size: 1.6rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4; text-shadow: 0 0 15px rgba(6,182,212,0.3);">91.7%</div></div>
+    <div><div style="font-size: 0.75rem; color: #7f7f8c; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 6px;">F1 Score</div><div style="font-size: 1.6rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4; text-shadow: 0 0 15px rgba(6,182,212,0.3);">90.6%</div></div>
 </div>
 """, unsafe_allow_html=True)
 
