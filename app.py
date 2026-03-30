@@ -74,7 +74,7 @@ html, body, [class*="css"] {
     display: inline-block;
     width: 6px; height: 6px;
     border-radius: 50%;
-    background: #ff5f1f;
+    background: #06b6d4;
 }
 
 /* ── Stats block ─────────────────────────────────── */
@@ -89,7 +89,7 @@ html, body, [class*="css"] {
     border-radius: 12px;
 }
 .stat-box { display: flex; flex-direction: column; gap: 4px; }
-.stat-val { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; color: #ff5f1f; font-weight: 500;}
+.stat-val { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; color: #06b6d4; font-weight: 500;}
 .stat-lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6b6b6b; font-weight: 600;}
 
 /* ── Page title ──────────────────────────────────── */
@@ -128,8 +128,8 @@ textarea {
     transition: border-color 0.15s ease !important;
 }
 textarea:focus {
-    border-color: #ff5f1f !important;
-    box-shadow: 0 0 0 3px rgba(255,95,31,0.08) !important;
+    border-color: #06b6d4 !important;
+    box-shadow: 0 0 0 3px rgba(6,182,212,0.08) !important;
     outline: none !important;
 }
 label[data-testid="stWidgetLabel"] p {
@@ -152,15 +152,15 @@ label[data-testid="stWidgetLabel"] p {
     cursor: pointer !important;
 }
 .stButton:first-of-type > button {
-    background: #ff5f1f !important;
+    background: #06b6d4 !important;
     color: #fff !important;
     border: none !important;
     padding: 0.55rem 1.4rem !important;
 }
 .stButton:first-of-type > button:hover {
-    background: #e5521a !important;
+    background: #0891b2 !important;
     transform: translateY(-1px) !important;
-    box-shadow: 0 4px 16px rgba(255,95,31,0.22) !important;
+    box-shadow: 0 4px 16px rgba(6,182,212,0.22) !important;
 }
 .stButton:not(:first-of-type) > button {
     background: transparent !important;
@@ -280,7 +280,7 @@ label[data-testid="stWidgetLabel"] p {
 }
 [data-testid="stTabs"] [aria-selected="true"] {
     color: #e0e0e0 !important;
-    border-bottom: 2px solid #ff5f1f !important;
+    border-bottom: 2px solid #06b6d4 !important;
 }
 [data-testid="stTabs"] [data-baseweb="tab-panel"] {
     padding: 1.6rem 0 0 !important;
@@ -479,10 +479,10 @@ for tab, fname in zip(tabs, plot_map.values()):
 
 st.markdown("""
 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; text-align: center; background: #141414; padding: 1.2rem; border-radius: 10px; border: 1px solid #222;">
-    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">Accuracy</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #ff5f1f;">93.8%</div></div>
-    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">Precision</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #ff5f1f;">89.4%</div></div>
-    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">Recall</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #ff5f1f;">91.7%</div></div>
-    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">F1 Score</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #ff5f1f;">90.6%</div></div>
+    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">Accuracy</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4;">93.8%</div></div>
+    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">Precision</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4;">89.4%</div></div>
+    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">Recall</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4;">91.7%</div></div>
+    <div><div style="font-size: 0.7rem; color: #6b6b6b; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 4px;">F1 Score</div><div style="font-size: 1.4rem; font-family: 'JetBrains Mono', monospace; font-weight: 500; color: #06b6d4;">90.6%</div></div>
 </div>
 """, unsafe_allow_html=True)
 
