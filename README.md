@@ -1,86 +1,104 @@
 <div align="center">
-  <h2>🎬 Movie Review Sentiment Analysis</h2>
-  <p>A production-ready NLP system classifying IMDB movie reviews (50,000 samples) in real-time.</p>
+  <h2>🎬 MovieReviewIQ — AI Movie Sentiment Intelligence</h2>
+  <p>Production-grade NLP SaaS platform classifying movie review sentiment with real-time inference, feature attribution, and interactive model diagnostics.</p>
 </div>
 
 ---
 
 ### 📖 Overview
-This project is an end-to-end Machine Learning pipeline that performs binary sentiment classification (Positive / Negative) on text. It leverages **Natural Language Processing (NLP)** techniques and a mathematically robust **TF-IDF + Logistic Regression** architecture. 
+**MovieReviewIQ** is a portfolio-grade, recruiter-ready Natural Language Processing (NLP) intelligence application. It performs binary and nuanced sentiment classification on film reviews using a mathematically grounded **TF-IDF + Logistic Regression** pipeline trained on 50,000 IMDb records.
 
-It is designed to demonstrate real-world ML deployment, moving from raw data processing and exploratory analysis to model training, evaluation, and finally, a sleek interactive web application.
-
----
-
-### 🧠 Model Explanation & Architecture
-**This model uses TF-IDF to convert textual reviews into numerical features and Logistic Regression to classify sentiment based on learned patterns from the training data.**
-
-*   **Data Preprocessing**: Custom stopword removal (e.g., `movie`, `film`), punctuation filtering, and robust WordNet Lemmatization.
-*   **Feature Engineering**: Scikit-Learn's `TfidfVectorizer` extracting 50,000 Unigrams & Bigrams with sublinear term frequency scaling.
-*   **Modeling**: A heavily tuned Logistic Regression model (`C=5.0`, `saga` solver), which strongly outperformed Naive Bayes in comparative tests.
+The application features a cinematic **Amber/Gold + Deep Charcoal** SaaS interface built with Streamlit, complete with real-time inference, confidence breakdown, top contributing word attribution, comprehensive dataset analytics, and model performance benchmarking.
 
 ---
 
-### 📊 Dataset & Performance
-*   **Dataset Source**: IMDB Large Movie Review Dataset
-*   **Dataset Size**: 50,000 highly polarized reviews (25,000 Positive | 25,000 Negative). Missing values are natively handled in the pipeline.
-*   **Target Accuracy**: **93.8%**
-*   **F1-Score**: **0.938** (Precision & Recall tightly balanced).
+### 🧠 End-to-End NLP Architecture
+The six-stage production pipeline operates as follows:
+
+```
+IMDb Dataset (50,000 Reviews)
+       │
+       ▼
+Text Cleaning & Preprocessing (HTML strip, regex, stopword removal, WordNet lemmatization)
+       │
+       ▼
+TF-IDF Vectorization (50,000 unigrams & bigrams, sublinear TF scaling)
+       │
+       ▼
+Logistic Regression Classifier (C=5.0, saga solver, L2 penalty)
+       │
+       ▼
+Real-Time Sentiment Prediction (Positive / Negative classification & confidence score)
+       │
+       ▼
+Feature Attribution (Dynamic coefficient attribution identifying key driving words)
+```
+
+1. **Text Preprocessing**: Custom HTML/URL stripping, punctuation removal, and NLTK WordNet lemmatization with film-specific stopwords filtered.
+2. **Feature Engineering**: Scikit-Learn `TfidfVectorizer` extracting 50,000 unigrams and bigrams with sublinear term-frequency scaling.
+3. **Classification Engine**: Fine-tuned Logistic Regression (`C=5.0`, `saga` solver) benchmarked directly against Multinomial Naive Bayes.
+4. **Interpretability & Attribution**: Real-time token-level feature attribution displaying the exact words and weights driving the model's decision.
+
+---
+
+### 📊 Verified Model Performance
+
+Evaluated on a held-out, stratified test set of **10,000 reviews** (5,000 Positive / 5,000 Negative):
+
+| Model | Accuracy | Precision | Recall | F1-Score |
+| :--- | :---: | :---: | :---: | :---: |
+| **Logistic Regression (Primary)** | **90.4%** | **89.4%** | **91.7%** | **90.6%** |
+| Multinomial Naive Bayes (Baseline) | 88.1% | 87.4% | 89.1% | 88.3% |
+
+#### Detailed Confusion Matrix (Held-out Test Set)
+- **True Positives (TP)**: 4,587
+- **True Negatives (TN)**: 4,458
+- **False Positives (FP)**: 542
+- **False Negatives (FN)**: 413
 
 <details>
-<summary><b>View Classification Report</b></summary>
+<summary><b>View Classification Report (Logistic Regression)</b></summary>
 
 ```text
               precision    recall  f1-score   support
 
-    Negative       0.94      0.94      0.94      5000
-    Positive       0.94      0.94      0.94      5000
+    Negative       0.91      0.89      0.90      5000
+    Positive       0.89      0.92      0.91      5000
 
-    accuracy                           0.94     10000
-   macro avg       0.94      0.94      0.94     10000
-weighted avg       0.94      0.94      0.94     10000
+    accuracy                           0.90     10000
+   macro avg       0.90      0.90      0.90     10000
+weighted avg       0.90      0.90      0.90     10000
 ```
 </details>
 
 ---
 
-### 💻 Web Deployment (Streamlit)
-The project is containerized into a beautiful, recruiter-ready Streamlit interface that avoids "AI-generated" tropes. It features:
-- Real-time prediction and dynamic Confidence Meters.
-- Embedded Model Comparison (LR vs NB).
-- Confusion Matrix Heatmaps.
-- **Model-Driven WordClouds**: Generated strictly from the `model.coef_` of the Logistic Regression model to visualize exactly what words drive "Positive" vs "Negative" predictions.
+### 💻 Web Application Features
 
-#### 📸 Application UI Screenshots
-
-1. **Dashboard Overview (Real-Time Metrics)**  
-   ![Dashboard Top](screenshots/ui_top.png?v=2)
-
-2. **Sentiment Prediction Engine**  
-   ![Prediction Interface](screenshots/ui_prediction.png?v=2)
-
-3. **In-App Evaluation Metrics**  
-   ![Evaluation Tab](screenshots/ui_metrics.png?v=2)
-
-#### 📊 Model Analysis Visualizations
-
-1. **Dashboard Overview & Model Comparison**
-   ![Model Comparison](plots/model_comparison.png)
-
-2. **Visualizations (Positive WordCloud Insight)**
-   ![WordCloud Positive](plots/wordcloud_positive.png)
-
-3. **Confusion Matrix (Logistic Regression)**
-   ![Confusion Matrix LR](plots/cm_logistic_regression.png)
+- **Sentiment Analyzer**:
+  - Live review text area with real-time synchronized character counter (`0 / 5000`).
+  - One-click sample selector and quick-test cards (Positive, Negative, Mixed).
+  - Prominent Amber/Gold action button with responsive prediction engine.
+  - Granular confidence percentage and positive/negative driver breakdown.
+- **Model Performance Tab**:
+  - Interactive KPI cards for Accuracy, Precision, Recall, and F1-Score.
+  - Side-by-side comparison between Logistic Regression and Naive Bayes.
+  - Confusion matrix heatmap breakdown.
+- **Dataset Explorer Tab**:
+  - Balanced 50/50 class distribution metrics (25,000 positive / 25,000 negative).
+  - Visual 6-stage NLP pipeline architecture card.
+- **SaaS Sidebar Navigation**:
+  - Clean 260px fixed-width navigation rail with collapsible responsive support.
+  - At-a-glance Model Info panel and test metrics summary.
 
 ---
 
-### 🚀 How to Run Locally
+### 🚀 Local Installation & Execution
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/RajatYadav07/Sentiment-Analysis-NLP.git
-   cd sentiment-analysis-nlp
+   cd sentiment_analysis
    ```
 
 2. **Install Dependencies**
@@ -88,20 +106,18 @@ The project is containerized into a beautiful, recruiter-ready Streamlit interfa
    pip install -r requirements.txt
    ```
 
-3. **Execute the Training Pipeline**
+3. **Train Models (Optional if pre-trained models exist in `models/`)**
    ```bash
    python train.py
    ```
-   *This will dynamically pull the IMDB dataset, preprocess 50,000 records, train the machine learning models, save `model.pkl` and `vectorizer.pkl`, and render all `.png` visual plots.*
 
-4. **Launch the Web App**
+4. **Launch the Application**
    ```bash
    streamlit run app.py
    ```
-   *Navigate to `http://localhost:8501` to test the model dynamically.*
+   Open `http://localhost:8501` in your browser.
 
 ---
 
-**Author**: RAJAT YADAV 
-**Tech Stack**: Python, Pandas, Scikit-Learn, NLTK, Matplotlib, Streamlit.
-..
+**Author**: Rajat Yadav  
+**Tech Stack**: Python, Scikit-Learn, NLTK, Streamlit, Pandas, NumPy, Matplotlib.
