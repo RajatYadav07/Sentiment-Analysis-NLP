@@ -31,6 +31,19 @@ def download_nltk_assets():
 
 download_nltk_assets()
 
+def safe_render_image(image_path: str, caption: str = ""):
+    """Render image safely across all Streamlit versions (legacy & modern cloud)."""
+    try:
+        st.image(image_path, caption=caption, use_container_width=True)
+    except TypeError:
+        try:
+            st.image(image_path, caption=caption, width="stretch")
+        except TypeError:
+            try:
+                st.image(image_path, caption=caption, use_column_width=True)
+            except Exception:
+                st.image(image_path, caption=caption)
+
 # ─────────────────────────────────────────────────────────────
 # 2. Paths & Authoritative Metrics (Single Source of Truth)
 # ─────────────────────────────────────────────────────────────
@@ -1832,10 +1845,10 @@ elif active_view == "Model Performance":
             wc1, wc2 = st.columns(2)
             with wc1:
                 if os.path.exists(pos_wc):
-                    st.image(pos_wc, caption="Positive Signal WordCloud", use_column_width=True)
+                    safe_render_image(pos_wc, caption="Positive Signal WordCloud")
             with wc2:
                 if os.path.exists(neg_wc):
-                    st.image(neg_wc, caption="Negative Signal WordCloud", use_column_width=True)
+                    safe_render_image(neg_wc, caption="Negative Signal WordCloud")
 
 # ─────────────────────────────────────────────────────────────
 # 8. View: Dataset Explorer
