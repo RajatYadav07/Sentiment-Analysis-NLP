@@ -1,6 +1,20 @@
 <div align="center">
   <h2>🎬 MovieReviewIQ — AI Movie Sentiment Intelligence</h2>
   <p>Production-grade NLP SaaS platform classifying movie review sentiment with real-time inference, feature attribution, and interactive model diagnostics.</p>
+
+  <p>
+    <a href="https://sentiment-analysis-nlp-rajat.streamlit.app/" target="_blank">
+      <img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Open in Streamlit" />
+    </a>
+    &nbsp;
+    <a href="https://github.com/RajatYadav07/Sentiment-Analysis-NLP" target="_blank">
+      <img src="https://img.shields.io/badge/GitHub-Repository-171714?style=flat&logo=github&logoColor=white" alt="GitHub Repository" />
+    </a>
+  </p>
+
+  <p>
+    🚀 <b>Live Demo:</b> <a href="https://sentiment-analysis-nlp-rajat.streamlit.app/">sentiment-analysis-nlp-rajat.streamlit.app</a>
+  </p>
 </div>
 
 ---
